@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "build_rate_unit": "permits / 1k residents",
+    "rent_index_base_year": 2018,
+    "series_years": [2018, 2019, 2020, 2021, 2022, 2023, 2024],
+    "national_avg_build_rate": 4.8
+  },
+  "cities": [
+    {
+      "id": "new-york-ny",
+      "name": "New York",
+      "state": "NY",
+      "population": 8335897,
+      "build_rate_series": [1.4, 1.5, 1.6, 1.8, 1.7, 1.6, 1.5],
+      "rent_real_index": [100, 101, 103, 104, 102, 101, 100]
+    },
+    {
+      "id": "los-angeles-ca",
+      "name": "Los Angeles",
+      "state": "CA",
+      "population": 3898747,
+      "build_rate_series": [2.2, 2.4, 2.6, 2.7, 2.6, 2.4, 2.3],
+      "rent_real_index": [100, 102, 104, 107, 106, 104, 103]
+    },
+    {
+      "id": "chicago-il",
+      "name": "Chicago",
+      "state": "IL",
+      "population": 2693976,
+      "build_rate_series": [3.0, 3.2, 3.4, 3.5, 3.3, 3.1, 3.0],
+      "rent_real_index": [100, 101, 103, 105, 104, 103, 101]
+    },
+    {
+      "id": "houston-tx",
+      "name": "Houston",
+      "state": "TX",
+      "population": 2304580,
+      "build_rate_series": [7.2, 7.5, 7.8, 8.1, 8.0, 7.6, 7.3],
+      "rent_real_index": [100, 102, 104, 108, 110, 108, 106]
+    },
+    {
+      "id": "phoenix-az",
+      "name": "Phoenix",
+      "state": "AZ",
+      "population": 1650070,
+      "build_rate_series": [8.0, 8.6, 9.1, 9.8, 9.5, 9.0, 8.7],
+      "rent_real_index": [100, 105, 112, 123, 118, 111, 108]
+    },
+    {
+      "id": "philadelphia-pa",
+      "name": "Philadelphia",
+      "state": "PA",
+      "population": 1603797,
+      "build_rate_series": [2.8, 3.0, 3.2, 3.3, 3.1, 3.0, 2.9],
+      "rent_real_index": [100, 101, 103, 106, 105, 104, 103]
+    },
+    {
+      "id": "san-antonio-tx",
+      "name": "San Antonio",
+      "state": "TX",
+      "population": 1451853,
+      "build_rate_series": [6.2, 6.5, 6.9, 7.2, 7.0, 6.8, 6.6],
+      "rent_real_index": [100, 101, 103, 107, 108, 107, 105]
+    },
+    {
+      "id": "san-diego-ca",
+      "name": "San Diego",
+      "state": "CA",
+      "population": 1386932,
+      "build_rate_series": [3.5, 3.7, 3.9, 4.1, 4.0, 3.8, 3.6],
+      "rent_real_index": [100, 103, 107, 112, 110, 108, 106]
+    },
+    {
+      "id": "dallas-tx",
+      "name": "Dallas",
+      "state": "TX",
+      "population": 1304379,
+      "build_rate_series": [6.5, 6.9, 7.4, 8.0, 7.8, 7.2, 6.9],
+      "rent_real_index": [100, 101, 104, 109, 111, 109, 107]
+    },
+    {
+      "id": "san-jose-ca",
+      "name": "San Jose",
+      "state": "CA",
+      "population": 1035317,
+      "build_rate_series": [2.6, 2.8, 3.0, 3.2, 3.0, 2.8, 2.7],
+      "rent_real_index": [100, 104, 108, 111, 109, 106, 104]
+    }
+  ]
+}
