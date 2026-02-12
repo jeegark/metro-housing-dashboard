@@ -1,157 +1,224 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Housebuilding & Rent Tracker</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>OxCAM Growth Scenario Tracker</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,700&family=Sora:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="page">
+    <div class="page-shell">
       <header class="site-header">
         <div class="topbar">
           <div class="brand">
-            <span class="brand__mark"></span>
-            Metro Build & Rent
+            <span class="brand-mark" aria-hidden="true"></span>
+            OxCAM Growth Watch
           </div>
-          <nav class="nav">
-            <a href="#above">Dashboard</a>
-            <a href="#method">Methodology</a>
-            <a href="#data">Data</a>
+          <nav class="site-nav" aria-label="Sections">
+            <a href="#ticker">Cost of Inaction</a>
+            <a href="#tracker">Implementation</a>
+            <a href="#timeline">Timeline</a>
+            <a href="#method">Method</a>
           </nav>
         </div>
 
-        <div class="hero">
-          <div class="hero__copy">
-            <p class="eyebrow">US Housing Observatory</p>
-            <h1>Housebuilding Momentum vs. Real Rent Change</h1>
-            <p class="dek">
-              Each metro panel pairs building permits per 1,000 residents with
-              inflation-adjusted ZORI rent change. Metros are grouped by whether
-              they exceed the national average housebuilding rate.
+        <section class="hero" id="ticker">
+          <p class="eyebrow">Oxford-Cambridge Arc Monitoring</p>
+          <h1>Cost of Not Delivering the Growth Scenario</h1>
+          <p class="dek">
+            Live estimate of forgone economic value from delayed implementation
+            of the Public First policy package.
+          </p>
+
+          <div class="ticker-panel" aria-live="polite">
+            <p class="ticker-label">Estimated cumulative cost of inaction</p>
+            <p class="ticker-value" id="tickerValue">£0</p>
+            <p class="ticker-subline" id="tickerSubline">
+              Updating every second from 29 January 2025.
             </p>
-            <p class="note">Coverage: metros with population above 100,000.</p>
-          </div>
-          <div class="hero__stats">
-            <div class="stat">
-              <div class="stat__label">National average build rate</div>
-              <div class="stat__value" id="nationalAvg">--</div>
-              <div class="stat__hint" id="rateUnit">permits / 1k residents</div>
-            </div>
-            <div class="stat">
-              <div class="stat__label">Metros above average</div>
-              <div class="stat__value" id="aboveCount">--</div>
-              <div class="stat__hint" id="cityCount">of -- metros</div>
-            </div>
-            <div class="stat">
-              <div class="stat__label">Rent index base year</div>
-              <div class="stat__value" id="baseYear">--</div>
-              <div class="stat__hint">inflation-adjusted</div>
+            <div class="ticker-meta">
+              <div class="meta-item">
+                <span class="meta-label">Elapsed since launch</span>
+                <span class="meta-value" id="elapsedSince">--</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Current cost per second</span>
+                <span class="meta-value" id="currentRate">--</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Modelled annual inaction (current year)</span>
+                <span class="meta-value" id="currentYearCost">--</span>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
+
+        <section class="snapshot" aria-label="Implementation summary">
+          <article class="snap-card">
+            <p class="snap-label">Policies Tracked</p>
+            <p class="snap-value" id="policiesTracked">--</p>
+          </article>
+          <article class="snap-card">
+            <p class="snap-label">Implemented / Live</p>
+            <p class="snap-value" id="policiesImplemented">--</p>
+          </article>
+          <article class="snap-card">
+            <p class="snap-label">In Progress</p>
+            <p class="snap-value" id="policiesInProgress">--</p>
+          </article>
+          <article class="snap-card">
+            <p class="snap-label">At Risk / Stalled</p>
+            <p class="snap-value" id="policiesAtRisk">--</p>
+          </article>
+          <article class="snap-card">
+            <p class="snap-label">Upcoming Deadlines</p>
+            <p class="snap-value" id="upcomingDeadlines">--</p>
+          </article>
+        </section>
       </header>
 
       <main>
-        <section class="controls">
-          <div class="control">
-            <label for="search">Find a metro</label>
-            <input id="search" type="text" placeholder="Start typing..." />
+        <section class="controls" id="tracker">
+          <div class="control-head">
+            <h2>Implementation Tracker</h2>
+            <p>
+              Status, developments, and deadlines across the Public First
+              Growth Scenario recommendations.
+            </p>
           </div>
-          <div class="control">
-            <label for="sort">Sort by</label>
-            <select id="sort">
-              <option value="build_desc">Build rate (high → low)</option>
-              <option value="rent_asc">Rent change (low → high)</option>
-              <option value="rent_desc">Rent change (high → low)</option>
-              <option value="alpha">Metro name (A → Z)</option>
-            </select>
+          <div class="control-grid">
+            <label class="control">
+              <span>Search policy</span>
+              <input
+                id="searchInput"
+                type="text"
+                placeholder="Housing, visa, sandbox, skills..."
+                autocomplete="off"
+              />
+            </label>
+
+            <label class="control">
+              <span>Policy pillar</span>
+              <select id="pillarFilter">
+                <option value="all">All pillars</option>
+              </select>
+            </label>
+
+            <label class="control">
+              <span>Status</span>
+              <select id="statusFilter">
+                <option value="all">All statuses</option>
+              </select>
+            </label>
+
+            <label class="control">
+              <span>Sort</span>
+              <select id="sortSelect">
+                <option value="priority">Risk priority</option>
+                <option value="recent">Most recently updated</option>
+                <option value="deadline">Nearest deadline</option>
+                <option value="alpha">Policy name A-Z</option>
+              </select>
+            </label>
           </div>
+          <p class="visible-count" id="visibleCount">Showing -- policies</p>
         </section>
 
-        <section id="above">
-          <div class="section-title">
-            <div>
-              <h2>Above National Average Build Rate</h2>
-              <p>Building faster than the national pace.</p>
-            </div>
-            <span class="section-rule"></span>
+        <section class="policy-grid" id="policyList"></section>
+
+        <section class="timeline" id="timeline">
+          <div class="section-head">
+            <h2>Developments Timeline</h2>
+            <p id="timelineSummary">
+              Announcements, status changes, and upcoming deadlines.
+            </p>
           </div>
-          <div class="city-grid" id="aboveGrid"></div>
+          <ol class="timeline-list" id="timelineList"></ol>
         </section>
 
-        <section id="below">
-          <div class="section-title">
-            <div>
-              <h2>Below National Average Build Rate</h2>
-              <p>Still building, but below the national average.</p>
-            </div>
-            <span class="section-rule"></span>
+        <section class="method" id="method">
+          <div class="section-head">
+            <h2>Method and Sources</h2>
+            <p id="datasetUpdated">Last updated: --</p>
           </div>
-          <div class="city-grid" id="belowGrid"></div>
-        </section>
-
-        <section class="notes" id="method">
-          <h3>Methodology Notes</h3>
-          <ul>
-            <li>Housebuilding rate = annual permits per 1,000 residents.</li>
-            <li>Real rent change = ZORI rent series deflated by CPI-U.</li>
-            <li>Population cutoff = 100,000+ (latest ACS).</li>
+          <ul class="method-list">
+            <li>
+              The counter starts at midnight on
+              <strong>29 January 2025 (GMT)</strong>.
+            </li>
+            <li>
+              The annual growth profile is a convex trajectory calibrated to
+              match a cumulative <strong>£78 billion by end-2035</strong>.
+            </li>
+            <li>
+              After 2035, the model continues at the 2035 implied annual run
+              rate until superseded by new data.
+            </li>
+            <li>
+              Tracker statuses are evidence-led and based on named official
+              releases and project updates.
+            </li>
           </ul>
-        </section>
-
-        <section class="notes" id="data">
-          <h3>Data Sources</h3>
-          <ul>
-            <li>U.S. Census Building Permits Survey (metro/CBSA).</li>
-            <li>Zillow Observed Rent Index (metro-level).</li>
-            <li>BLS CPI-U for inflation adjustment.</li>
-            <li>American Community Survey for population.</li>
-          </ul>
+          <h3>Primary Sources</h3>
+          <ul class="source-list" id="sourceList"></ul>
         </section>
       </main>
     </div>
 
-    <template id="cardTemplate">
-      <article class="city-card">
-        <header class="city-card__header">
+    <template id="policyTemplate">
+      <article class="policy-card">
+        <header class="policy-head">
           <div>
-            <h3 class="city-card__title"></h3>
-            <p class="city-card__subtitle"></p>
+            <p class="policy-pillar"></p>
+            <h3 class="policy-title"></h3>
           </div>
-          <div class="pill"></div>
+          <span class="status-badge"></span>
         </header>
 
-        <div class="city-card__metrics">
-          <div>
-            <div class="metric__label">Build rate</div>
-            <div class="metric__value"></div>
-            <div class="metric__hint">permits / 1k residents</div>
-          </div>
-          <div>
-            <div class="metric__label">Real rent change</div>
-            <div class="metric__value rent-change"></div>
-            <div class="metric__hint">since base year</div>
-          </div>
+        <p class="policy-recommendation"></p>
+
+        <div class="policy-meta">
+          <p><strong>Lead:</strong> <span class="policy-lead"></span></p>
+          <p><strong>Progress:</strong> <span class="policy-progress"></span></p>
         </div>
 
-        <div class="city-card__charts">
-          <div class="chart">
-            <div class="chart__label">Housebuilding rate</div>
-            <div class="chart__svg build"></div>
-          </div>
-          <div class="chart">
-            <div class="chart__label">Real rent index</div>
-            <div class="chart__svg rent"></div>
-          </div>
+        <div class="progress-track" aria-hidden="true">
+          <div class="progress-fill"></div>
         </div>
+
+        <div class="policy-dates">
+          <p>
+            <span class="label">Last update</span>
+            <span class="value policy-last-update"></span>
+          </p>
+          <p>
+            <span class="label">Next deadline</span>
+            <span class="value policy-next-deadline"></span>
+          </p>
+        </div>
+
+        <ul class="policy-events"></ul>
+        <div class="policy-links"></div>
       </article>
+    </template>
+
+    <template id="timelineTemplate">
+      <li class="timeline-item">
+        <div class="timeline-marker"></div>
+        <article class="timeline-card">
+          <p class="timeline-date"></p>
+          <h3 class="timeline-title"></h3>
+          <p class="timeline-summary"></p>
+          <div class="timeline-tags"></div>
+          <a class="timeline-source" target="_blank" rel="noopener noreferrer">Source</a>
+        </article>
+      </li>
     </template>
 
     <script src="app.js"></script>
